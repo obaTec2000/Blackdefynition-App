@@ -57,93 +57,97 @@ const SignUp = ({ navigation }) => {
         </View>
       </KeyboardAvoidingView>
       <View style={styles.text2}>
-            <Text
-              style={{
-                color: "grey",
-                fontSize: 9,
-                fontFamily: "Blair ITC.otf",
-                textTransform: "uppercase",
-                fontStyle: "normal",
-                right: -90,
-                top: 190,
-              }}
-            >
-              forgot password ?{" "}
-            </Text>
-          </View>
-          <View style={styles.text2}>
-            <Text
-              style={{
-                color: "white",
-                fontSize: 9,
-                fontFamily: "Blair ITC.otf",
-                textTransform: "uppercase",
-                fontStyle: "normal",
-                right: 85,
-                top: 200,
-              }}
-            >
-              remember me{" "}
-            </Text>
-          </View>
+        <Pressable onPress={() => navigation.navigate("Forgot")}>
+          <Text
+            style={{
+              color: "grey",
+              fontSize: 9,
+              fontFamily: "Blair ITC.otf",
+              textTransform: "uppercase",
+              fontStyle: "normal",
+              right: -90,
+              top: 190,
+            }}
+          >
+            forgot password ?{" "}
+          </Text>
+        </Pressable>
+      </View>
+      <View style={styles.text2}>
+        <Text
+          style={{
+            color: "white",
+            fontSize: 9,
+            fontFamily: "Blair ITC.otf",
+            textTransform: "uppercase",
+            fontStyle: "normal",
+            right: 85,
+            top: 200,
+          }}
+        >
+          remember me{" "}
+        </Text>
+      </View>
 
-          <View style={styles.text2}>
-            <Text
-              style={{
-                color: "grey",
-                fontSize: 10,
-                fontFamily: "Blair ITC.otf",
-                textTransform: "uppercase",
-                fontStyle: "normal",
-                top: 300,
-              }}
-            >
-              or{" "}
-            </Text>
-          </View>
+      <View style={styles.text2}>
+        <Text
+          style={{
+            color: "grey",
+            fontSize: 10,
+            fontFamily: "Blair ITC.otf",
+            textTransform: "uppercase",
+            fontStyle: "normal",
+            top: 300,
+          }}
+        >
+          or{" "}
+        </Text>
+      </View>
 
-          <View style={styles.text2}>
-            <Text
-              style={{
-                color: "grey",
-                fontSize: 10,
-                fontFamily: "Blair ITC.otf",
-                textTransform: "uppercase",
-                fontStyle: "normal",
-                top: 320,
-              }}
-            >
-              sign up with{" "}
-            </Text>
-          </View>
-          <View style={styles.text2}>
-            <Text
-              style={{
-                color: "white",
-                fontSize: 10,
-                fontFamily: "Blair ITC.otf",
-                textTransform: "uppercase",
-                fontStyle: "normal",
-                top: 386,
-                left: -17,
-              }}
-            >
-              don't have account?{" "}
-            </Text>
-            <Text
-              style={{
-                color: "grey",
-                fontSize: 10,
-                fontFamily: "Blair ITC.otf",
-                textTransform: "uppercase",
-                fontStyle: "normal",
-                left: 133,
-                top: 375,
-              }}
-            >
-              sign up{" "}
-            </Text>
-          </View>
+      <View style={styles.text2}>
+        <Text
+          style={{
+            color: "grey",
+            fontSize: 10,
+            fontFamily: "Blair ITC.otf",
+            textTransform: "uppercase",
+            fontStyle: "normal",
+            top: 320,
+          }}
+        >
+          sign up with{" "}
+        </Text>
+      </View>
+      <View style={styles.text2}>
+        <Text
+          style={{
+            color: "white",
+            fontSize: 10,
+            fontFamily: "Blair ITC.otf",
+            textTransform: "uppercase",
+            fontStyle: "normal",
+            top: 386,
+            left: -17,
+          }}
+        >
+          don't have account?{" "}
+        </Text>
+        <Pressable onPress={() => navigation.navigate("SignUp")}>
+          <Text
+            style={{
+              color: "grey",
+              fontSize: 10,
+              fontFamily: "Blair ITC.otf",
+              textTransform: "uppercase",
+              fontStyle: "normal",
+              left: 133,
+              top: 375,
+            }}
+          >
+            sign up{" "}
+          </Text>
+        </Pressable>
+      </View>
 
       {/* Button container */}
       <View
@@ -154,8 +158,8 @@ const SignUp = ({ navigation }) => {
         }}
       >
         {/* button */}
-     {/* button */}
-     <Pressable onPress={() => navigation.navigate("ConfirmOtp")}>
+        {/* button */}
+        <Pressable onPress={() => navigation.navigate("home")}>
           <View style={styles.btn}>
             <Text
               style={{
@@ -170,7 +174,7 @@ const SignUp = ({ navigation }) => {
               sign up
             </Text>
           </View>
-        </Pressable>  
+        </Pressable>
       </View>
       {/* <View style={styles.btn2}>
         <Text
@@ -184,27 +188,25 @@ const SignUp = ({ navigation }) => {
           }}
         ></Text>
       </View> */}
-<Image
-source={require("../../assets/facebook.png")}
-style={styles.facebook}
-></Image>
-<Image
-source={require("../../assets/twitter.png")}
-style={styles.twitter}
-></Image>
-<Image
-source={require("../../assets/instagram.png")}
-style={styles.instagram}
-></Image>
-<Image
-source={require("../../assets/goggle.png")}
-style={styles.goggle}
-></Image>
+      <Image
+        source={require("../../assets/facebook.png")}
+        style={styles.facebook}
+      ></Image>
+      <Image
+        source={require("../../assets/twitter.png")}
+        style={styles.twitter}
+      ></Image>
+      <Image
+        source={require("../../assets/instagram.png")}
+        style={styles.instagram}
+      ></Image>
+      <Image
+        source={require("../../assets/goggle.png")}
+        style={styles.goggle}
+      ></Image>
     </ImageBackground>
   );
 };
-
-
 
 const styles = StyleSheet.create({
   image: {
@@ -273,7 +275,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   input: {
-    height: 35,
+    height: 36,
     width: 324,
     borderWidth: 1,
     borderColor: "gray",
@@ -284,32 +286,32 @@ const styles = StyleSheet.create({
     fontSize: 9,
   },
 
-  facebook:{
-width: 41.18,
-height: 41.18,
-left: -70,
-top: 283,
-  },
-
-  twitter:{
+  facebook: {
     width: 41.18,
     height: 41.18,
-   left: -20,
+    left: -70,
+    top: 283,
+  },
+
+  twitter: {
+    width: 41.18,
+    height: 41.18,
+    left: -20,
     top: 242,
-      },
+  },
 
-      instagram:{
-        width: 41.18,
-        height: 41.18,
-        left: 28,
-        top: 202,
-          },
+  instagram: {
+    width: 41.18,
+    height: 41.18,
+    left: 28,
+    top: 202,
+  },
 
-          goggle:{
-            width: 41.18,
-            height: 41.18,
-            left: 79,
-            top: 160,
-              }
+  goggle: {
+    width: 41.18,
+    height: 41.18,
+    left: 79,
+    top: 160,
+  },
 });
 export default SignUp;

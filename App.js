@@ -19,10 +19,10 @@ const Navigation = () => {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="OnBoardScreen" component={OnBoardScreen} />
       <Stack.Screen name="Login" component={Login} />
-      {/* <Stack.Screen name="SignUp" component={SignUp} />
-       <Stack.Screen name="Forgot" component={Forgot} />
-       <Stack.Screen name="ConfirmOtp" component={ConfirmOtp} />
-       <Stack.Screen name="Reset" component={Reset} /> */}
+      <Stack.Screen name="SignUp" component={SignUp} />
+      <Stack.Screen name="Forgot" component={Forgot} />
+      <Stack.Screen name="ConfirmOtp" component={ConfirmOtp} />
+       <Stack.Screen name="Reset" component={Reset} /> 
 
      
     </Stack.Navigator>

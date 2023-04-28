@@ -10,8 +10,7 @@ import {
   Button,
   KeyboardAvoidingView,
 } from "react-native";
-
-import OtpInputs from 'react-native-otp-inputs';
+import OTPInputView from '@twotalltotems/react-native-otp-input'
 
 //fonts
 import { useFonts } from "expo-font";
@@ -65,10 +64,24 @@ const Forgot = ({ navigation }) => {
                 textAlign: "center",
               }}
             >
-              enter 
+              verify
             </Text>
           </View>
         </Pressable>
+
+        <OTPInputView
+    style={{width: '80%', height: 200}}
+    pinCount={6}
+    // code={this.state.code} //You can supply this prop or not. The component will be used as a controlled / uncontrolled component respectively.
+    // onCodeChanged = {code => { this.setState({code})}}
+    autoFocusOnLoad
+    codeInputFieldStyle={styles.underlineStyleBase}
+    codeInputHighlightStyle={styles.underlineStyleHighLighted}
+    onCodeFilled = {(code => {
+        console.log(`Code is ${code}, you are good to go!`)
+    })}
+/>
+
       </View>
       <View style={styles.btn2}>
           </View>
@@ -77,6 +90,34 @@ const Forgot = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+
+    borderStyleBase: {
+        width: 30,
+        
+       
+      },
+    
+      borderStyleHighLighted: {
+        borderColor: "#03DAC6",
+        color: 'black'
+      },
+    
+      underlineStyleBase: {
+        width: 40,
+        height:30,
+        borderWidth: 0,
+        borderBottomWidth: 35,
+        top: 85,
+        left: 7
+        // alignItems: 'center',
+      },
+    
+      underlineStyleHighLighted: {
+        borderColor: "#03DAC6",
+        color: 'black',
+        fontSize: 12,
+        
+      },
   image: {
     flex: 1,
     alignItems: "center",
@@ -90,15 +131,15 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 12,
     justifyContent: "center",
-    // alignItems: 'center',
-    left: 10,
-    top: 250,
+    alignItems: 'center',
+    left: 100,
+    top: 320,
   },
 
   btn2: {
     height: 6,
     width: 185,
-    bottom: 40,
+    bottom: 110,
     backgroundColor: "rgba(255, 255, 255, 0.4);",
     borderRadius: 12,
     justifyContent: "center",
@@ -115,7 +156,7 @@ const styles = StyleSheet.create({
     fontWeight: 500,
     color: "white",
     textTransform: "uppercase",
-    top: 135,
+    top: 185,
   },
   inputGroup: {
     flexDirection: "column",

@@ -47,8 +47,8 @@ const SignUp = ({ navigation }) => {
               fontFamily: "Blair ITC.otf",
               textTransform: "uppercase",
               fontStyle: "normal",
-              left: 30,
-              top: 408,
+              left: 20,
+              top: 420,
             }}
           >
             {" "}
@@ -117,8 +117,8 @@ const SignUp = ({ navigation }) => {
         }}
       >
         {/* button */}
-     {/* button */}
-     <Pressable onPress={() => navigation.navigate("Login")}>
+        {/* button */}
+        <Pressable onPress={() => navigation.navigate("Forgot")}>
           <View style={styles.btn}>
             <Text
               style={{
@@ -144,7 +144,7 @@ const SignUp = ({ navigation }) => {
                 textTransform: "uppercase",
                 fontStyle: "normal",
                 right: 30,
-                top: 140,
+                top: 170,
               }}
             >
               Already have an account?{" "}
@@ -159,15 +159,13 @@ const SignUp = ({ navigation }) => {
                 textTransform: "uppercase",
                 fontStyle: "normal",
                 left: 125,
-                top: 130,
+                top: 160,
               }}
             >
               {" "}
               sign up{" "}
             </Text>
-            <Pressable
-              onPress={() => navigation.navigate("Login")}
-            ></Pressable>
+            <Pressable onPress={() => navigation.navigate("Forgot")}></Pressable>
           </View>
         </View>
       </View>
@@ -196,14 +194,14 @@ const styles = StyleSheet.create({
   },
 
   btn: {
-    height: 38,
-    width: 104,
+    height: 30,
+    width: 98,
     bottom: 40,
     backgroundColor: "white",
     borderRadius: 12,
     justifyContent: "center",
     left: 20,
-    top: 130,
+    top: 160,
   },
 
   btn2: {
@@ -211,8 +209,8 @@ const styles = StyleSheet.create({
     width: 8,
     bottom: 40,
     backgroundColor: "white",
-    left: -140,
-    top: 15,
+    left: -150,
+    top: 90,
   },
 
   title: {
@@ -226,7 +224,7 @@ const styles = StyleSheet.create({
     color: "white",
     textTransform: "uppercase",
     textAlign: "center",
-    top: 100,
+    top: 200,
   },
 
   create: {
@@ -235,20 +233,20 @@ const styles = StyleSheet.create({
     textAlign: "center",
     width: 322,
     height: 40,
-    fontSize: 9,
+    fontSize: 7,
     fontWeight: 500,
     color: "white",
     textTransform: "uppercase",
     textAlign: "center",
-    top: 100,
-    left: -85,
+    top: 187,
+    left: -95,
   },
 
   inputGroup: {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    top: 60,
+    top: 136,
   },
   container: {
     // backgroundColor: "white",
@@ -258,7 +256,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   input: {
-    height: 44,
+    height: 35,
     width: 324,
     borderWidth: 1,
     borderColor: "gray",
@@ -266,6 +264,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     backgroundColor: "white",
     fontFamily: "Blair ITC.otf",
+    fontSize: 9,
   },
 });
 export default SignUp;
