@@ -171,7 +171,7 @@ const SignUp = ({ navigation }) => {
                 textAlign: "center",
               }}
             >
-              sign up
+              sign in
             </Text>
           </View>
         </Pressable>

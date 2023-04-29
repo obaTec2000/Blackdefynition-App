@@ -9,6 +9,7 @@ import {
   Image,
   Button,
   KeyboardAvoidingView,
+  ScrollView
 } from "react-native";
 
 //fonts
@@ -25,10 +26,12 @@ const SignUp = ({ navigation }) => {
   }
 
   return (
+
     <ImageBackground
       source={require("../../assets/mobilescreen3.png")}
       style={styles.image}
     >
+      
       {/* Title and text container */}
       <View style={{ paddingTop: 20 }}>
         {/* Title container */}
