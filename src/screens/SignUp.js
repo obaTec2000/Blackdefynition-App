@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -9,14 +9,23 @@ import {
   Image,
   Button,
   KeyboardAvoidingView,
-  ScrollView
+  ScrollView,
+  TouchableOpacity,
 } from "react-native";
+import Entypo from "react-native-vector-icons/Entypo";
 
 //fonts
 import { useFonts } from "expo-font";
 import Apploading from "expo-app-loading";
 
 const SignUp = ({ navigation }) => {
+  const [checkBox, setCheckBox] = useState(false);
+
+  const handleCheckBox = () => {
+    setCheckBox(!checkBox);
+  };
+  
+  const [mood, setMood] = useState("");
   let [fontsLoaded] = useFonts({
     "Blair ITC.otf": require("../../assets/Blair ITC.otf"),
   });
@@ -26,12 +35,25 @@ const SignUp = ({ navigation }) => {
   }
 
   return (
-
     <ImageBackground
       source={require("../../assets/mobilescreen3.png")}
       style={styles.image}
     >
-      
+      <TouchableOpacity onPress={() => navigation.goBack("Login")}>
+        <Entypo
+          name="chevron-left"
+          style={{
+            fontSize: 18,
+            color: "black",
+            padding: 7,
+            backgroundColor: "white",
+            borderRadius: 10,
+            right: 140,
+            top: -70,
+          }}
+        />
+      </TouchableOpacity>
+
       {/* Title and text container */}
       <View style={{ paddingTop: 20 }}>
         {/* Title container */}
@@ -42,6 +64,21 @@ const SignUp = ({ navigation }) => {
           <Text style={styles.create}>Create your Account!</Text>
         </View>
         <View style={styles.text2}>
+        <TouchableOpacity onPress={() => handleCheckBox()}>
+          <View
+            style={{
+              backgroundColor: checkBox === true ? "white" : "transparent",
+              width: 20,
+              height: 20,
+              borderWidth: 2,
+              borderColor: "white",
+              borderRadius: 4,
+              // right: 85,
+              top: 437,
+              
+            }}
+          ></View>
+        </TouchableOpacity>
           <Text
             numberOfLines={2}
             style={{
@@ -50,8 +87,8 @@ const SignUp = ({ navigation }) => {
               fontFamily: "Blair ITC.otf",
               textTransform: "uppercase",
               fontStyle: "normal",
-              left: 20,
               top: 420,
+              right: -2-30,
             }}
           >
             {" "}
@@ -101,14 +138,6 @@ const SignUp = ({ navigation }) => {
             secureTextEntry
           />
         </View>
-        <View style={styles.container}>
-          <TextInput
-            style={styles.input}
-            placeholder="GENDER"
-            onChangeText={(text) => {}}
-            secureTextEntry
-          />
-        </View>
       </KeyboardAvoidingView>
 
       {/* Button container */}
@@ -121,7 +150,8 @@ const SignUp = ({ navigation }) => {
       >
         {/* button */}
         {/* button */}
-        <Pressable onPress={() => navigation.navigate("Forgot")}>
+
+        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
           <View style={styles.btn}>
             <Text
               style={{
@@ -136,23 +166,24 @@ const SignUp = ({ navigation }) => {
               sign up
             </Text>
           </View>
-        </Pressable>
+        </TouchableOpacity>
+
         <View style={styles.text2}>
-          <View style={styles.text2}>
-            <Text
-              style={{
-                color: "white",
-                fontSize: 8,
-                fontFamily: "Blair ITC.otf",
-                textTransform: "uppercase",
-                fontStyle: "normal",
-                right: 30,
-                top: 170,
-              }}
-            >
-              Already have an account?{" "}
-            </Text>
-          </View>
+          <Text
+            style={{
+              color: "white",
+              fontSize: 8,
+              fontFamily: "Blair ITC.otf",
+              textTransform: "uppercase",
+              fontStyle: "normal",
+              right: 30,
+              top: 260,
+            }}
+          >
+            Already have an account?{" "}
+          </Text>
+        </View>
+        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
           <View style={styles.text2}>
             <Text
               style={{
@@ -162,17 +193,16 @@ const SignUp = ({ navigation }) => {
                 textTransform: "uppercase",
                 fontStyle: "normal",
                 left: 125,
-                top: 160,
+                top: 250,
               }}
             >
               {" "}
-              sign up{" "}
+              sign in{" "}
             </Text>
-            <Pressable onPress={() => navigation.navigate("Forgot")}></Pressable>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
-      <View style={styles.btn2}>
+      {/* <View style={styles.btn2}>
         <Text
           style={{
             color: "black",
@@ -183,12 +213,88 @@ const SignUp = ({ navigation }) => {
             textAlign: "center",
           }}
         ></Text>
+      </View> */}
+      <View styles={styles.container}>
+        <View style={styles.wrapper}>
+          {["male", "female"].map((feeling) => (
+            <View key={feeling} style={styles.mood}>
+              <Text style={styles.feeling}>{feeling}</Text>
+              <TouchableOpacity
+                style={styles.outer}
+                onPress={() => setMood(feeling)}
+              >
+                {mood === feeling && <View style={styles.inner} />}
+              </TouchableOpacity>
+            </View>
+          ))}
+        </View>
+        <Text
+              style={{
+                color: "white",
+                fontSize: 10,
+                fontFamily: "Blair ITC.otf",
+                textTransform: "uppercase",
+                fontStyle: "normal",
+                right: 50,
+                top:-20 ,
+              }}
+            >
+              {" "}
+              gender{" "}
+            </Text>
       </View>
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    marginTop: 130,
+    right: 10,
+    
+    // color: 'white',
+  },
+
+  feeling: {
+    fontSize: 5,
+    color: "white",
+    fontFamily: "Blair ITC.otf",
+    textTransform: "uppercase",
+  },
+
+  mood: {
+    marginHorizontal: 40,
+    alignItems: "center",
+  },
+
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  outer: {
+    width: 20,
+    height: 20,
+    borderWidth: 1,
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
+    // color: 'white'
+  },
+
+  inner: {
+    width: 12,
+    height: 12,
+    borderWidth: 1,
+    borderRadius: 15,
+    backgroundColor: "black",
+    alignItems: "center",
+  },
+
   image: {
     flex: 1,
     alignItems: "center",
@@ -204,16 +310,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     justifyContent: "center",
     left: 20,
-    top: 160,
-  },
-
-  btn2: {
-    height: 8,
-    width: 8,
-    bottom: 40,
-    backgroundColor: "white",
-    left: -150,
-    top: 90,
+    top: 245,
   },
 
   title: {
@@ -227,7 +324,7 @@ const styles = StyleSheet.create({
     color: "white",
     textTransform: "uppercase",
     textAlign: "center",
-    top: 200,
+    top: 240,
   },
 
   create: {
@@ -241,7 +338,7 @@ const styles = StyleSheet.create({
     color: "white",
     textTransform: "uppercase",
     textAlign: "center",
-    top: 187,
+    top: 235,
     left: -95,
   },
 
@@ -249,12 +346,12 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    top: 136,
+    top: 170,
   },
   container: {
     // backgroundColor: "white",
     width: 324,
-    padding: 5,
+    padding: 2,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -263,7 +360,7 @@ const styles = StyleSheet.create({
     width: 324,
     borderWidth: 1,
     borderColor: "gray",
-    padding: 8,
+    padding: 6,
     borderRadius: 30,
     backgroundColor: "white",
     fontFamily: "Blair ITC.otf",

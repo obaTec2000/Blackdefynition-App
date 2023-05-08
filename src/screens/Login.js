@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import {
   View,
   Text,
@@ -9,15 +9,25 @@ import {
   Image,
   Button,
   KeyboardAvoidingView,
+  TouchableOpacity,
 } from "react-native";
-import { Input, NativeBaseProvider, Icon, Box, AspectRatio } from "native-base";
-import COLORS from "../../consts/colors";
+
+// import { CheckBox } from "native-base";
+
+import Entypo from "react-native-vector-icons/Entypo";
 
 //fonts
 import { useFonts } from "expo-font";
 import Apploading from "expo-app-loading";
 
-const SignUp = ({ navigation }) => {
+const Login = ({ navigation }) => {
+  const [checkBox, setCheckBox] = useState(false);
+
+  const handleCheckBox = () => {
+    setCheckBox(!checkBox);
+  };
+
+  const option = ["remember"];
   let [fontsLoaded] = useFonts({
     "Blair ITC.otf": require("../../assets/Blair ITC.otf"),
   });
@@ -31,12 +41,30 @@ const SignUp = ({ navigation }) => {
       source={require("../../assets/mobilescreen3.png")}
       style={styles.image}
     >
+      <TouchableOpacity onPress={() => navigation.goBack("Home")}>
+        <Entypo
+          name="chevron-left"
+          style={{
+            fontSize: 18,
+            color: "black",
+            padding: 7,
+            backgroundColor: "white",
+            borderRadius: 10,
+            right: 140,
+            top: -155,
+          }}
+        />
+      </TouchableOpacity>
       {/* Title and text container */}
       <View style={{ paddingTop: 20 }}>
         {/* Title container */}
         <View>
           <Text style={styles.title}>blackdefynition</Text>
         </View>
+      </View>
+
+      <View>
+        <Text style={styles.checkfont}></Text>
       </View>
 
       <KeyboardAvoidingView style={styles.inputGroup}>
@@ -56,8 +84,8 @@ const SignUp = ({ navigation }) => {
           />
         </View>
       </KeyboardAvoidingView>
-      <View style={styles.text2}>
-        <Pressable onPress={() => navigation.navigate("Forgot")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Forgot")}>
+        <View style={styles.text2}>
           <Text
             style={{
               color: "grey",
@@ -66,14 +94,29 @@ const SignUp = ({ navigation }) => {
               textTransform: "uppercase",
               fontStyle: "normal",
               right: -90,
-              top: 190,
+              top: 175,
             }}
           >
             forgot password ?{" "}
           </Text>
-        </Pressable>
-      </View>
+        </View>
+      </TouchableOpacity>
       <View style={styles.text2}>
+        <TouchableOpacity onPress={() => handleCheckBox()}>
+          <View
+            style={{
+              backgroundColor: checkBox === true ? "white" : "transparent",
+              width: 20,
+              height: 20,
+              borderWidth: 2,
+              borderColor: "white",
+              borderRadius: 4,
+              top: 193,
+              right: 110,
+              
+            }}
+          ></View>
+        </TouchableOpacity>
         <Text
           style={{
             color: "white",
@@ -82,7 +125,7 @@ const SignUp = ({ navigation }) => {
             textTransform: "uppercase",
             fontStyle: "normal",
             right: 85,
-            top: 200,
+            top: 180,
           }}
         >
           remember me{" "}
@@ -97,7 +140,7 @@ const SignUp = ({ navigation }) => {
             fontFamily: "Blair ITC.otf",
             textTransform: "uppercase",
             fontStyle: "normal",
-            top: 300,
+            top: 260,
           }}
         >
           or{" "}
@@ -112,7 +155,7 @@ const SignUp = ({ navigation }) => {
             fontFamily: "Blair ITC.otf",
             textTransform: "uppercase",
             fontStyle: "normal",
-            top: 320,
+            top: 270,
           }}
         >
           sign up with{" "}
@@ -126,13 +169,13 @@ const SignUp = ({ navigation }) => {
             fontFamily: "Blair ITC.otf",
             textTransform: "uppercase",
             fontStyle: "normal",
-            top: 386,
-            left: -17,
+            top: 336,
+            left: -25,
           }}
         >
           don't have account?{" "}
         </Text>
-        <Pressable onPress={() => navigation.navigate("SignUp")}>
+        <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
           <Text
             style={{
               color: "grey",
@@ -140,13 +183,13 @@ const SignUp = ({ navigation }) => {
               fontFamily: "Blair ITC.otf",
               textTransform: "uppercase",
               fontStyle: "normal",
-              left: 133,
-              top: 375,
+              left: 125,
+              top: 325,
             }}
           >
             sign up{" "}
           </Text>
-        </Pressable>
+        </TouchableOpacity>
       </View>
 
       {/* Button container */}
@@ -159,7 +202,8 @@ const SignUp = ({ navigation }) => {
       >
         {/* button */}
         {/* button */}
-        <Pressable onPress={() => navigation.navigate("home")}>
+
+        <TouchableOpacity onPress={() => navigation.navigate("home")}>
           <View style={styles.btn}>
             <Text
               style={{
@@ -171,10 +215,13 @@ const SignUp = ({ navigation }) => {
                 textAlign: "center",
               }}
             >
-              sign in
+              Log in
             </Text>
           </View>
-        </Pressable>
+        </TouchableOpacity>
+      </View>
+      <View>
+        
       </View>
       {/* <View style={styles.btn2}>
         <Text
@@ -193,12 +240,8 @@ const SignUp = ({ navigation }) => {
         style={styles.facebook}
       ></Image>
       <Image
-        source={require("../../assets/twitter.png")}
+        source={require("../../assets/linkedin.png")}
         style={styles.twitter}
-      ></Image>
-      <Image
-        source={require("../../assets/instagram.png")}
-        style={styles.instagram}
       ></Image>
       <Image
         source={require("../../assets/goggle.png")}
@@ -209,6 +252,15 @@ const SignUp = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  checkBox: {
+    width: 15,
+    height: 15,
+    top: 113,
+    right: 140,
+    borderWidth: 2,
+    backgroundColor: "white",
+    marginRight: 5,
+  },
   image: {
     flex: 1,
     alignItems: "center",
@@ -222,7 +274,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 12,
     justifyContent: "center",
-    top: 200,
+    top: 180,
   },
 
   btn2: {
@@ -265,12 +317,12 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    top: 190,
+    top: 170,
   },
   container: {
     // backgroundColor: "white",
     width: 324,
-    padding: 5,
+    padding: 2,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -289,29 +341,22 @@ const styles = StyleSheet.create({
   facebook: {
     width: 41.18,
     height: 41.18,
-    left: -70,
-    top: 283,
+    left: -65,
+    top: 223,
   },
 
   twitter: {
     width: 41.18,
     height: 41.18,
-    left: -20,
-    top: 242,
-  },
-
-  instagram: {
-    width: 41.18,
-    height: 41.18,
-    left: 28,
-    top: 202,
+    left: -10,
+    top: 182,
   },
 
   goggle: {
     width: 41.18,
     height: 41.18,
-    left: 79,
-    top: 160,
+    left: 50,
+    top: 140,
   },
 });
-export default SignUp;
+export default Login;

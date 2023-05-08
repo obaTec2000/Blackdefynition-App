@@ -23,8 +23,6 @@ const Navigation = () => {
       <Stack.Screen name="Forgot" component={Forgot} />
       <Stack.Screen name="ConfirmOtp" component={ConfirmOtp} />
        <Stack.Screen name="Reset" component={Reset} /> 
-
-     
     </Stack.Navigator>
    </NavigationContainer>
    </SafeAreaView>

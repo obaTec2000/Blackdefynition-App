@@ -10,13 +10,11 @@ import {
   Button,
   KeyboardAvoidingView,
 } from "react-native";
-import OTPInputView from '@twotalltotems/react-native-otp-input'
+import OTPInputView from "@twotalltotems/react-native-otp-input";
 
 //fonts
 import { useFonts } from "expo-font";
 import Apploading from "expo-app-loading";
-
-
 
 const Forgot = ({ navigation }) => {
   let [fontsLoaded] = useFonts({
@@ -24,7 +22,6 @@ const Forgot = ({ navigation }) => {
   });
 
   if (!fontsLoaded) {
-    
     return <Apploading />;
   }
 
@@ -33,14 +30,12 @@ const Forgot = ({ navigation }) => {
       source={require("../../assets/mobilescreen4.png")}
       style={styles.image}
     >
-        
       {/* Title and text container */}
       <View style={{ paddingTop: 20 }}>
         {/* Title container */}
         <View>
           <Text style={styles.title}>enter otp code</Text>
         </View>
-        
       </View>
 
       {/* Button container */}
@@ -70,54 +65,48 @@ const Forgot = ({ navigation }) => {
         </Pressable>
 
         <OTPInputView
-    style={{width: '80%', height: 200}}
-    pinCount={6}
-    // code={this.state.code} //You can supply this prop or not. The component will be used as a controlled / uncontrolled component respectively.
-    // onCodeChanged = {code => { this.setState({code})}}
-    autoFocusOnLoad
-    codeInputFieldStyle={styles.underlineStyleBase}
-    codeInputHighlightStyle={styles.underlineStyleHighLighted}
-    onCodeFilled = {(code => {
-        console.log(`Code is ${code}, you are good to go!`)
-    })}
-/>
-
+          style={{ width: "80%", height: 200 }}
+          pinCount={6}
+          // code={this.state.code} //You can supply this prop or not. The component will be used as a controlled / uncontrolled component respectively.
+          // onCodeChanged = {code => { this.setState({code})}}
+          autoFocusOnLoad
+          codeInputFieldStyle={styles.underlineStyleBase}
+          codeInputHighlightStyle={styles.underlineStyleHighLighted}
+          onCodeFilled={(code) => {
+            console.log(`Code is ${code}, you are good to go!`);
+          }}
+        />
       </View>
-      <View style={styles.btn2}>
-          </View>
+      <View style={styles.btn2}></View>
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+  borderStyleBase: {
+    width: 30,
+  },
 
-    borderStyleBase: {
-        width: 30,
-        
-       
-      },
-    
-      borderStyleHighLighted: {
-        borderColor: "#03DAC6",
-        color: 'black'
-      },
-    
-      underlineStyleBase: {
-        width: 40,
-        height:30,
-        borderWidth: 0,
-        borderBottomWidth: 35,
-        top: 85,
-        left: 7
-        // alignItems: 'center',
-      },
-    
-      underlineStyleHighLighted: {
-        borderColor: "#03DAC6",
-        color: 'black',
-        fontSize: 12,
-        
-      },
+  borderStyleHighLighted: {
+    borderColor: "#03DAC6",
+    color: "black",
+  },
+
+  underlineStyleBase: {
+    width: 40,
+    height: 30,
+    borderWidth: 0,
+    borderBottomWidth: 35,
+    top: 85,
+    left: 7,
+    // alignItems: 'center',
+  },
+
+  underlineStyleHighLighted: {
+    borderColor: "#03DAC6",
+    color: "black",
+    fontSize: 12,
+  },
   image: {
     flex: 1,
     alignItems: "center",
@@ -131,7 +120,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 12,
     justifyContent: "center",
-    alignItems: 'center',
+    alignItems: "center",
     left: 100,
     top: 320,
   },
@@ -168,7 +157,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "white",
     width: 324,
     padding: 5,
-    alignItems: 'center'
+    alignItems: "center",
   },
   input: {
     padding: 15,
@@ -182,6 +171,5 @@ const styles = StyleSheet.create({
     fontFamily: "Blair ITC.otf",
     fontSize: 10,
   },
-
 });
 export default Forgot;

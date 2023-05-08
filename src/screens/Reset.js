@@ -35,7 +35,6 @@ const Forgot = ({ navigation }) => {
         <View>
           <Text style={styles.title}>reset your password</Text>
         </View>
-        
       </View>
 
       <KeyboardAvoidingView style={styles.inputGroup}>
@@ -46,7 +45,6 @@ const Forgot = ({ navigation }) => {
             onChangeText={(text) => {}}
           />
         </View>
-
         <View style={styles.container}>
           <TextInput
             style={styles.input}
@@ -77,13 +75,12 @@ const Forgot = ({ navigation }) => {
                 textAlign: "center",
               }}
             >
-              enter 
+              enter
             </Text>
           </View>
         </Pressable>
       </View>
-      <View style={styles.btn2}>
-          </View>
+      <View style={styles.btn2}></View>
     </ImageBackground>
   );
 };
@@ -110,7 +107,7 @@ const styles = StyleSheet.create({
   btn2: {
     height: 6,
     width: 185,
-    bottom: 60,
+    bottom: 40,
     backgroundColor: "rgba(255, 255, 255, 0.4);",
     borderRadius: 12,
     justifyContent: "center",
@@ -127,7 +124,7 @@ const styles = StyleSheet.create({
     fontWeight: 500,
     color: "white",
     textTransform: "uppercase",
-    top: 175,
+    top: 160,
   },
   inputGroup: {
     flexDirection: "column",
@@ -138,8 +135,8 @@ const styles = StyleSheet.create({
   container: {
     // backgroundColor: "white",
     width: 324,
-    padding: 5,
-    alignItems: 'center'
+    padding: 2,
+    alignItems: "center",
   },
   input: {
     padding: 15,
@@ -153,6 +150,5 @@ const styles = StyleSheet.create({
     fontFamily: "Blair ITC.otf",
     fontSize: 10,
   },
-
 });
 export default Forgot;

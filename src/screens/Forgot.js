@@ -9,6 +9,7 @@ import {
   Image,
   Button,
   KeyboardAvoidingView,
+  TouchableOpacity,
 } from "react-native";
 
 //fonts
@@ -25,6 +26,7 @@ const Forgot = ({ navigation }) => {
   }
 
   return (
+    
     <ImageBackground
       source={require("../../assets/mobilescreen4.png")}
       style={styles.image}
@@ -73,8 +75,10 @@ const Forgot = ({ navigation }) => {
         }}
       >
         {/* button */}
-        <Pressable onPress={() => navigation.navigate("ConfirmOtp")}>
+      
+         
           <View style={styles.btn}>
+          <TouchableOpacity  onPress={() => navigation.navigate("ConfirmOtp")}>
             <Text
               style={{
                 color: "black",
@@ -87,8 +91,9 @@ const Forgot = ({ navigation }) => {
             >
               enter 
             </Text>
+            </TouchableOpacity>
           </View>
-        </Pressable>
+        
       </View>
       <View style={styles.btn2}>
           </View>

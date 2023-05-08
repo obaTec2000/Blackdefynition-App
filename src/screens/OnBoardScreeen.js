@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Pressable,
   ImageBackground,
+  TouchableOpacity
 } from "react-native";
 import COLORS from "../../consts/colors";
 
@@ -35,11 +36,14 @@ const OnBoardScreen = ({ navigation }) => {
 /> */}
 
       {/* Indicator container */}
+
       <View style={style.indicatorContainer}>
         <View style={style.indicator} />
         <View style={style.indicator} />
         <View style={[style.indicator, style.indicatorActive]} />
       </View>
+
+
 
       {/* Title and text container */}
       <View style={{ paddingHorizontal: 20, paddingTop: 20 }}>
@@ -57,6 +61,10 @@ const OnBoardScreen = ({ navigation }) => {
       </View>
 
       {/* Button container */}
+
+      <TouchableOpacity>
+
+      </TouchableOpacity>
       <View
         style={{
           flex: 1,
@@ -65,7 +73,7 @@ const OnBoardScreen = ({ navigation }) => {
         }}
       >
         {/* button */}
-        <Pressable onPress={() => navigation.navigate("Login")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
           <View style={style.btn}>
             <Text
               style={{
@@ -80,7 +88,7 @@ const OnBoardScreen = ({ navigation }) => {
               constellate
             </Text>
           </View>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   );
